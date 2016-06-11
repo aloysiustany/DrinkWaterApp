@@ -179,16 +179,34 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
                     android:layout_width="match_parent">
+                    <EditText
+                        android:layout_column="0"
+                        android:id="@+id/editText_customAddWater"
+                        android:width="85dp"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginRight="5dp"
+                        android:background="@drawable/addcustomwatertextbox"
+                        android:layout_height="35dp"
+                        android:layout_gravity="bottom"
+                        android:textSize="15dp"
+                        android:layout_marginBottom="15dp" />
                     <Button
-                        android:id="@+id/button"
+                        android:id="@+id/button_addCutomWater"
                         android:background="@drawable/addcustomwaterbutton"
-                        android:layout_width="58dp"
-                        android:layout_height="58dp" />
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_column="1"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginBottom="15dp" />
                     <Button
-                        android:id="@+id/button"
-                        android:background="@drawable/ic_add_circle_black_18dp"
-                        android:layout_width="38dp"
-                        android:layout_height="38dp" />
+                        android:id="@+id/button_addPrevWater"
+                        android:background="@drawable/AddPrevWaterButton"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_column="2"
+                        android:layout_marginLeft="55dp"
+                        android:layout_marginBottom="15dp"
+                        android:layout_gravity="right" />
                 </TableRow>
             </TableLayout>
         </TableRow>

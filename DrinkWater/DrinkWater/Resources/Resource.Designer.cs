@@ -48,13 +48,28 @@ namespace DrinkWater
 			public const int AddCustomWaterButton = 2130837504;
 			
 			// aapt resource value: 0x7f020001
-			public const int DrinkingProgressBar = 2130837505;
+			public const int AddCustomWaterTextBox = 2130837505;
 			
 			// aapt resource value: 0x7f020002
-			public const int ic_add_circle_black_18dp = 2130837506;
+			public const int AddPrevWaterButton = 2130837506;
 			
 			// aapt resource value: 0x7f020003
-			public const int Icon = 2130837507;
+			public const int DrinkingProgressBar = 2130837507;
+			
+			// aapt resource value: 0x7f020004
+			public const int ic_add_circle_black_18dp = 2130837508;
+			
+			// aapt resource value: 0x7f020005
+			public const int Icon = 2130837509;
+			
+			// aapt resource value: 0x7f020006
+			public const int Plus_Filled_50 = 2130837510;
+			
+			// aapt resource value: 0x7f020007
+			public const int Recurring_Icon_48 = 2130837511;
+			
+			// aapt resource value: 0x7f020008
+			public const int Recurring_Icon_50 = 2130837512;
 			
 			static Drawable()
 			{
@@ -69,8 +84,14 @@ namespace DrinkWater
 		public partial class Id
 		{
 			
+			// aapt resource value: 0x7f050014
+			public const int button_addCutomWater = 2131034132;
+			
+			// aapt resource value: 0x7f050015
+			public const int button_addPrevWater = 2131034133;
+			
 			// aapt resource value: 0x7f050013
-			public const int button = 2131034131;
+			public const int editText_customAddWater = 2131034131;
 			
 			// aapt resource value: 0x7f05000b
 			public const int progressBar_DrinkProgress = 2131034123;
