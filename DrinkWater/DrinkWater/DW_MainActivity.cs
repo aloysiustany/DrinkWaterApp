@@ -1,15 +1,19 @@
-﻿using System;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
 using Android.App;
 using Android.Content;
+using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using Android.OS;
 
 namespace DrinkWater
 {
-    [Activity(Label = "DrinkWater", MainLauncher = true, Icon = "@drawable/icon")]
-    public class MainActivity : Activity
+    [Activity(Label = "Drink Water", MainLauncher = true, Icon = "@drawable/icon")]
+    class DW_MainActivity : Activity
     {
         int count = 1;
 
@@ -28,4 +32,3 @@ namespace DrinkWater
         }
     }
 }
-
