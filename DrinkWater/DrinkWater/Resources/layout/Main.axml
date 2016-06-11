@@ -193,16 +193,16 @@
                     <Button
                         android:id="@+id/button_addCutomWater"
                         android:background="@drawable/addcustomwaterbutton"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
+                        android:layout_width="55dp"
+                        android:layout_height="55dp"
                         android:layout_column="1"
                         android:layout_marginLeft="5dp"
                         android:layout_marginBottom="15dp" />
                     <Button
                         android:id="@+id/button_addPrevWater"
                         android:background="@drawable/AddPrevWaterButton"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
+                        android:layout_width="55dp"
+                        android:layout_height="55dp"
                         android:layout_column="2"
                         android:layout_marginLeft="55dp"
                         android:layout_marginBottom="15dp"
