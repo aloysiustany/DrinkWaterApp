@@ -82,9 +82,6 @@
     <AndroidResource Include="Resources\drawable\AddCustomWaterTextBox.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Plus_Math_60.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable\Plus_Math_60_Shadow.png" />
   </ItemGroup>
   <ItemGroup>
