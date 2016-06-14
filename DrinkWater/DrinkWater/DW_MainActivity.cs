@@ -9,6 +9,8 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Android.Util;
+using static Android.Widget.AbsListView;
 
 namespace DrinkWater
 {
@@ -26,9 +28,20 @@ namespace DrinkWater
 
             // Get our button from the layout resource,
             // and attach an event to it
-           // Button button = FindViewById<Button>(Resource.Id.MyButton);
+            // Button button = FindViewById<Button>(Resource.Id.MyButton);
 
-        //    button.Click += delegate { button.Text = string.Format("{0} clicks!", count++); };
+            //    button.Click += delegate { button.Text = string.Format("{0} clicks!", count++); };
+
+            TextView tv = FindViewById<TextView>(Resource.Id.textView_defaultTextBeforeAdd);
+            TextView tv1 = FindViewById<TextView>(Resource.Id.textView_defaultTextBeforeAdd_1);
+
+            //tv1.BringToFront();
+
+            var metrics = Resources.DisplayMetrics;
+            FrameLayout fv = FindViewById<FrameLayout>(Resource.Id.frameLayout_middleMan);
+           
+             fv.LayoutParameters.Width = (int)(metrics.WidthPixels / Resources.DisplayMetrics.Density);
+
         }
     }
 }

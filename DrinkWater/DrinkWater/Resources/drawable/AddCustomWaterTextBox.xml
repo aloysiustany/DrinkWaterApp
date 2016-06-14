@@ -9,7 +9,7 @@
 
   <!-- main color -->
   <item
-      android:bottom="1.5dp"
+      android:bottom="2dp"
       android:left="1.5dp"
       android:right="1.5dp">
     <shape>

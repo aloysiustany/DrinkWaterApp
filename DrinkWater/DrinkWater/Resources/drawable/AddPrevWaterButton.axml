@@ -1,9 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-  <item android:drawable="@drawable/Recurring_Icon_48"
+  <item android:drawable="@drawable/Recurring_Icon_60_Pressed"
         android:state_pressed="true" />
-  <item android:drawable="@drawable/Recurring_Icon_48"
+  <item android:drawable="@drawable/Recurring_Icon_60_Shadow"
         android:state_focused="true" />
-  <item android:drawable="@drawable/Recurring_Icon_48" />
-  <item android:drawable="@drawable/Recurring_Icon_48" />
+  <item android:drawable="@drawable/Recurring_Icon_60_Shadow" />
 </selector>

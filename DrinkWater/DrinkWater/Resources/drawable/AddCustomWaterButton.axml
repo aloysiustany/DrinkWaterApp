@@ -1,9 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-  <item android:drawable="@drawable/Plus_Filled_50"
-        android:state_pressed="true" />
-  <item android:drawable="@drawable/Plus_Filled_50"
-        android:state_focused="true" />
-  <item android:drawable="@drawable/Plus_Filled_50" />
-  <item android:drawable="@drawable/Plus_Filled_50" />
+  <item android:drawable="@drawable/Plus_Math_60_Pressed"
+        android:state_pressed="true" 
+        />
+  <item android:drawable="@drawable/Plus_Math_60_Shadow"
+        android:state_focused="true"
+        />
+  <item android:drawable="@drawable/Plus_Math_60_Shadow" 
+        ></item>
+
 </selector>

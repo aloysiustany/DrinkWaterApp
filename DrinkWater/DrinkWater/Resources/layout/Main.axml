@@ -1,214 +1,273 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scroller"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:minWidth="25px"
-    android:minHeight="25px"
-    android:background="#F8F8F8">
-    <TableLayout
+    android:fillViewport="true">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:clickable="true"
         android:minWidth="25px"
         android:minHeight="25px"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/tableLayout1"
-        android:stretchColumns="0">
-        <TableRow
-            android:id="@+id/tableRow1"
+        android:background="#F8F8F8"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
+        <LinearLayout
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:layout_width="0px"
+            android:layout_height="0px" />
+        <TableLayout
             android:minWidth="25px"
             android:minHeight="25px"
-            android:layout_marginTop="5dp"
-            android:layout_height="wrap_content">
-            <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/tableLayout1"
+            android:stretchColumns="0">
+            <TableRow
+                android:id="@+id/tableRow1"
                 android:minWidth="25px"
                 android:minHeight="25px"
-                android:layout_height="wrap_content"
-                android:id="@+id/tableLayout2"
-                android:layout_weight="0.7">
-                <TableRow
-                    android:id="@+id/tableRow2"
+                android:layout_marginTop="5dp"
+                android:layout_height="wrap_content">
+                <TableLayout
                     android:minWidth="25px"
                     android:minHeight="25px"
-                    android:layout_marginTop="5dp"
                     android:layout_height="wrap_content"
-                    android:layout_width="wrap_content">
-                    <TableLayout
+                    android:id="@+id/tableLayout2"
+                    android:layout_weight="0.8">
+                    <TableRow
+                        android:id="@+id/tableRow2"
                         android:minWidth="25px"
                         android:minHeight="25px"
-                        android:layout_width="match_parent"
+                        android:layout_marginTop="5dp"
                         android:layout_height="wrap_content"
-                        android:id="@+id/tableLayout3">
-                        <TableRow
-                            android:id="@+id/tableRow3"
+                        android:layout_width="wrap_content">
+                        <TableLayout
                             android:minWidth="25px"
                             android:minHeight="25px"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_width="312.5dp"
-                            android:layout_gravity="right">
-                            <TextView
-                                android:text="Text"
-                                android:id="@+id/textView_ProgressActualsML"
-                                android:textColor="#000000"
-                                android:textSize="17dp"
-                                android:typeface="sans"
-                                android:layout_marginRight="3.5dp"
+                            android:id="@+id/tableLayout3">
+                            <TableRow
+                                android:id="@+id/tableRow3"
+                                android:minWidth="25px"
+                                android:minHeight="25px"
                                 android:layout_height="wrap_content"
-                                android:shadowColor="#f0ffffff"
-                                android:textStyle="normal"
-                                android:textAlignment="textEnd"
-                                android:foregroundGravity="right"
-                                android:gravity="right"
-                                android:layout_weight="0.8" />
-                            <TextView
-                                android:text="/"
-                                android:id="@+id/textView_ProgressTextSlash"
-                                android:gravity="left"
-                                android:textColor="#000000"
-                                android:textSize="11dp"
-                                android:typeface="sans"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" />
-                            <TextView
-                                android:text="Text"
-                                android:id="@+id/textView_TargetML"
-                                android:layout_marginLeft="3dp"
-                                android:gravity="left"
-                                android:textColor="#000000"
-                                android:textSize="11dp"
-                                android:typeface="sans"
-                                android:layout_height="wrap_content"
-                                android:layout_width="wrap_content" />
-                            <TextView
-                                android:text="ml"
-                                android:id="@+id/textView_ProgressTextML"
-                                android:layout_marginLeft="3.0dp"
-                                android:layout_marginRight="6.0dp"
-                                android:gravity="left"
-                                android:textColor="#000000"
-                                android:textSize="11dp"
-                                android:typeface="normal"
-                                android:layout_height="wrap_content" />
-                        </TableRow>
-                    </TableLayout>
-                </TableRow>
-                <TableRow
-                    android:id="@+id/tableRow4"
+                                android:layout_width="312.5dp"
+                                android:layout_gravity="right">
+                                <TextView
+                                    android:text="Text"
+                                    android:id="@+id/textView_ProgressActualsML"
+                                    android:textColor="#444444"
+                                    android:textSize="25dp"
+                                    android:typeface="sans"
+                                    android:layout_marginRight="3.5dp"
+                                    android:layout_height="wrap_content"
+                                    android:shadowColor="#f0ffffff"
+                                    android:textStyle="normal"
+                                    android:textAlignment="textEnd"
+                                    android:foregroundGravity="right"
+                                    android:gravity="right"
+                                    android:layout_weight="0.8" />
+                                <TextView
+                                    android:text="/"
+                                    android:id="@+id/textView_ProgressTextSlash"
+                                    android:gravity="left"
+                                    android:textColor="#444444"
+                                    android:textSize="20dp"
+                                    android:typeface="sans"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content" />
+                                <TextView
+                                    android:text="Text"
+                                    android:id="@+id/textView_TargetML"
+                                    android:layout_marginLeft="3dp"
+                                    android:gravity="left"
+                                    android:textColor="#444444"
+                                    android:textSize="17dp"
+                                    android:typeface="sans"
+                                    android:layout_height="wrap_content"
+                                    android:layout_width="wrap_content" />
+                                <TextView
+                                    android:text="ml"
+                                    android:id="@+id/textView_ProgressTextML"
+                                    android:layout_marginLeft="3.0dp"
+                                    android:layout_marginRight="6.0dp"
+                                    android:gravity="left"
+                                    android:textColor="#888888"
+                                    android:textSize="17dp"
+                                    android:typeface="normal"
+                                    android:layout_height="wrap_content"
+                                    android:textStyle="normal" />
+                            </TableRow>
+                        </TableLayout>
+                    </TableRow>
+                    <TableRow
+                        android:id="@+id/tableRow4"
+                        android:minWidth="25px"
+                        android:minHeight="25px"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content">
+                        <ProgressBar
+                            android:layout_width="240.5dp"
+                            android:layout_height="14.0dp"
+                            style="@android:style/Widget.ProgressBar.Horizontal"
+                            android:id="@+id/progressBar_DrinkProgress"
+                            android:layout_marginLeft="10.0dp"
+                            android:progressDrawable="@drawable/drinkingprogressbar"
+                            android:layout_gravity="center_vertical" />
+                    </TableRow>
+                </TableLayout>
+                <TableLayout
                     android:minWidth="25px"
                     android:minHeight="25px"
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content">
-                    <ProgressBar
-                        android:layout_width="267.5dp"
-                        android:layout_height="14.0dp"
-                        style="@android:style/Widget.ProgressBar.Horizontal"
-                        android:id="@+id/progressBar_DrinkProgress"
-                        android:layout_marginLeft="5.0dp"
-                        android:progressDrawable="@drawable/drinkingprogressbar"
-                        android:layout_gravity="center_vertical" />
-                </TableRow>
-            </TableLayout>
-            <TableLayout
-                android:minWidth="25px"
-                android:minHeight="25px"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:id="@+id/tableLayout6">
-                <TableRow
-                    android:id="@+id/tableRow7"
-                    android:minWidth="25px"
-                    android:minHeight="25px"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
-                    android:layout_width="match_parent">
+                    android:id="@+id/tableLayout6"
+                    android:layout_weight="0.2">
+                    <TableRow
+                        android:id="@+id/tableRow7"
+                        android:minWidth="25px"
+                        android:minHeight="25px"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_width="match_parent">
+                        <TextView
+                            android:text="Text"
+                            android:id="@+id/textView_ProgressPercent"
+                            android:layout_marginLeft="3dp"
+                            android:gravity="bottom"
+                            android:textColor="#444444"
+                            android:textSize="30dp"
+                            android:typeface="sans"
+                            android:layout_height="match_parent"
+                            android:foregroundGravity="center"
+                            android:layout_gravity="center"
+                            android:layout_marginBottom="1dp" />
+                        <TextView
+                            android:text="%"
+                            android:id="@+id/textView_PercentTextPercent"
+                            android:layout_marginLeft="1dp"
+                            android:layout_marginRight="13dp"
+                            android:gravity="bottom"
+                            android:textColor="#666666"
+                            android:textSize="20dp"
+                            android:typeface="sans"
+                            android:layout_height="match_parent"
+                            android:foregroundGravity="center"
+                            android:layout_gravity="bottom"
+                            android:layout_marginBottom="3dp"
+                            android:layout_width="wrap_content" />
+                    </TableRow>
+                </TableLayout>
+            </TableRow>
+            <TableRow
+                android:id="@+id/tableRow4"
+                android:minWidth="25px"
+                android:minHeight="25px"
+                android:layout_marginTop="5dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.7">
+                <FrameLayout
+                  android:id="@+id/frameLayout_middleMan"
+                    android:layout_width="250dp"
+                    android:layout_height="fill_parent">
                     <TextView
-                        android:text="Text"
-                        android:id="@+id/textView_ProgressPercent"
-                        android:layout_marginLeft="3dp"
-                        android:gravity="bottom"
-                        android:textColor="#000000"
-                        android:textSize="22dp"
+                        android:text="After drinking a glass of water click &quot;+&quot; button to record"
+                        android:id="@+id/textView_defaultTextBeforeAdd"
+                        android:textColor="#888888"
+                        android:textSize="20dp"
                         android:typeface="sans"
-                        android:layout_height="match_parent"
-                        android:foregroundGravity="center"
                         android:layout_gravity="center"
-                        android:layout_marginBottom="1dp" />
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content" 
+                        android:textStyle="normal"
+                        android:gravity="center" />
                     <TextView
-                        android:text="%"
-                        android:id="@+id/textView_PercentTextPercent"
-                        android:layout_marginLeft="1dp"
-                        android:layout_marginRight="13dp"
-                        android:gravity="bottom"
-                        android:textColor="#000000"
-                        android:textSize="16dp"
+                        android:text="So much for this"
+                        android:id="@+id/textView_defaultTextBeforeAdd_1"
+                        android:textColor="#777777"
+                        android:textSize="20dp"
                         android:typeface="sans"
-                        android:layout_height="match_parent"
-                        android:foregroundGravity="center"
-                        android:layout_gravity="bottom"
-                        android:layout_marginBottom="3dp"
-                        android:layout_width="wrap_content" />
-                </TableRow>
-            </TableLayout>
-        </TableRow>
-        <TableRow
-            android:id="@+id/tableRow4"
-            android:minWidth="25px"
-            android:minHeight="25px"
-            android:layout_marginTop="5dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.7">
-        </TableRow>
-        <TableRow
-            android:id="@+id/tableRow5"
-            android:minWidth="25px"
-            android:minHeight="25px"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.1">
-            <TableLayout
+                        android:layout_gravity="center"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content" 
+                        android:textStyle="normal"
+                        android:gravity="center" />
+                </FrameLayout>
+            </TableRow>
+            <TableRow
+                android:id="@+id/tableRow5"
                 android:minWidth="25px"
                 android:minHeight="25px"
-                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:id="@+id/tableLayout7"
-                android:layout_span="6">
-                <TableRow
-                    android:id="@+id/tableRow8"
+                android:layout_weight="0.1">
+                <TableLayout
                     android:minWidth="25px"
                     android:minHeight="25px"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
-                    android:layout_width="match_parent">
-                    <EditText
-                        android:layout_column="0"
-                        android:id="@+id/editText_customAddWater"
-                        android:width="85dp"
-                        android:layout_marginLeft="25dp"
-                        android:layout_marginRight="5dp"
-                        android:background="@drawable/addcustomwatertextbox"
-                        android:layout_height="35dp"
+                    android:id="@+id/tableLayout7"
+                    android:layout_span="6">
+                    <TableRow
+                        android:id="@+id/tableRow8"
+                        android:minWidth="25px"
+                        android:minHeight="25px"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="bottom"
-                        android:textSize="15dp"
-                        android:layout_marginBottom="15dp" />
-                    <Button
-                        android:id="@+id/button_addCutomWater"
-                        android:background="@drawable/addcustomwaterbutton"
-                        android:layout_width="55dp"
-                        android:layout_height="55dp"
-                        android:layout_column="1"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginBottom="15dp" />
-                    <Button
-                        android:id="@+id/button_addPrevWater"
-                        android:background="@drawable/AddPrevWaterButton"
-                        android:layout_width="55dp"
-                        android:layout_height="55dp"
-                        android:layout_column="2"
-                        android:layout_marginLeft="55dp"
-                        android:layout_marginBottom="15dp"
-                        android:layout_gravity="right" />
-                </TableRow>
-            </TableLayout>
-        </TableRow>
-    </TableLayout>
-</LinearLayout>
+                        android:layout_width="match_parent"
+                        android:layout_marginBottom="15dp">
+                        <EditText
+                            android:layout_column="0"
+                            android:id="@+id/editText_customAddWater"
+                            android:width="59dp"
+                            android:layout_marginLeft="35dp"
+                            android:layout_marginRight="5dp"
+                            android:background="@drawable/addcustomwatertextbox"
+                            android:layout_height="35dp"
+                            android:layout_gravity="bottom"
+                            android:textSize="25dp"
+                            android:layout_marginBottom="15dp"
+                            android:textColor="#555555"
+                            android:inputType="number"
+                            android:maxLength="4"
+                            android:numeric="integer"
+                            android:typeface="sans"
+                            android:selectAllOnFocus="true" />
+                        <TextView
+                            android:text="ml"
+                            android:id="@+id/textView_customAddTextML"
+                            android:layout_marginLeft="2dp"
+                            android:textColor="#888888"
+                            android:textSize="18dp"
+                            android:typeface="sans"
+                            android:layout_gravity="bottom"
+                            android:layout_marginBottom="12dp"
+                            android:layout_width="wrap_content"
+                            android:textStyle="normal" />
+                        <Button
+                            android:id="@+id/button_addCutomWater"
+                            android:background="@drawable/addcustomwaterbutton"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="7dp"
+                            android:layout_marginBottom="20dp" />
+                        <Button
+                            android:id="@+id/button_addPrevWater"
+                            android:background="@drawable/AddPrevWaterButton"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginBottom="15dp"
+                            android:layout_gravity="right" />
+                    </TableRow>
+                </TableLayout>
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+</ScrollView>
