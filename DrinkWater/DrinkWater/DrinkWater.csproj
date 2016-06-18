@@ -62,6 +62,9 @@
     </AndroidResource>
     <AndroidResource Include="Resources\drawable\AddPrevWaterButton.axml" />
     <AndroidResource Include="Resources\layout\TodayDrinkLogGridElement.axml" />
+    <AndroidResource Include="Resources\layout\TodayDrinkLogEditModal.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Main.axml">

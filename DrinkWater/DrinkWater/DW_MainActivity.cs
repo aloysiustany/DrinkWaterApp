@@ -19,7 +19,7 @@ namespace DrinkWater
     {
         int count = 1;
 
-        
+
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -35,10 +35,10 @@ namespace DrinkWater
             //    button.Click += delegate { button.Text = string.Format("{0} clicks!", count++); };
 
             TextView tv = FindViewById<TextView>(Resource.Id.textView_defaultTextBeforeAdd);
-          //  TextView tv1 = FindViewById<TextView>(Resource.Id.textView_defaultTextBeforeAdd_1);
+            //  TextView tv1 = FindViewById<TextView>(Resource.Id.textView_defaultTextBeforeAdd_1);
             TableRow tl = FindViewById<TableRow>(Resource.Id.tableRow5);
             FrameLayout fl = FindViewById<FrameLayout>(Resource.Id.frameLayout_middleMan);
-          //  tv.SetWidth(tl.Width);
+            //  tv.SetWidth(tl.Width);
 
 
 
@@ -54,7 +54,7 @@ namespace DrinkWater
             var gridview = FindViewById<GridView>(Resource.Id.TodayDrinkLogGrid);
             gridview.Adapter = new TodayDrinkLogGridAdapter(this);
 
-
+            gridview.ItemClick += ((TodayDrinkLogGridAdapter)gridview.Adapter).itemClicked;
         }
     }
 }

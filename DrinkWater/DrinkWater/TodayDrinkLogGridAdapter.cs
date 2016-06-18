@@ -74,6 +74,7 @@ namespace DrinkWater
         public TodayDrinkLogGridAdapter(Context c)
         {
             context = c;
+            
         }
 
         public override int Count
@@ -113,11 +114,22 @@ namespace DrinkWater
                 DateTime now = DateTime.Now.ToLocalTime();
                 textViewTime.Text = now.ToShortTimeString();
                 imageViewGlass.SetImageResource(imageId[position]);
-                
-                
+
+            //    parent.
             }
 
             return grid;
+        }
+
+        public void itemClicked(Object sender, AdapterView.ItemClickEventArgs args)
+        {
+            
+            Toast.MakeText(this.context, args.Position.ToString() , ToastLength.Short).Show();
+
+            Dialog dialog = new Dialog(context);
+            dialog.SetContentView(Resource.Layout.TodayDrinkLogEditModal);
+            dialog.SetTitle("Hello There!");
+            dialog.Show();
         }
 
     }

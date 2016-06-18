@@ -90,20 +90,38 @@ namespace DrinkWater
 		public partial class Id
 		{
 			
+			// aapt resource value: 0x7f050020
+			public const int DrinkLogEditModal_CancelButton = 2131034144;
+			
+			// aapt resource value: 0x7f05001f
+			public const int DrinkLogEditModal_UpdateButton = 2131034143;
+			
+			// aapt resource value: 0x7f05001e
+			public const int DrinkLogEditModal_input = 2131034142;
+			
+			// aapt resource value: 0x7f05001b
+			public const int DrinkLogEditModal_text = 2131034139;
+			
+			// aapt resource value: 0x7f05001c
+			public const int EditLog_tableLayout1 = 2131034140;
+			
+			// aapt resource value: 0x7f05001d
+			public const int EditLog_tableRow1 = 2131034141;
+			
 			// aapt resource value: 0x7f050013
 			public const int TodayDrinkLogGrid = 2131034131;
 			
-			// aapt resource value: 0x7f05001c
-			public const int TodayDrinkLogGridImage = 2131034140;
+			// aapt resource value: 0x7f050022
+			public const int TodayDrinkLogGridImage = 2131034146;
 			
-			// aapt resource value: 0x7f05001b
-			public const int TodayDrinkLogGridLinearLayout = 2131034139;
+			// aapt resource value: 0x7f050021
+			public const int TodayDrinkLogGridLinearLayout = 2131034145;
 			
-			// aapt resource value: 0x7f05001d
-			public const int TodayDrinkLogGridML = 2131034141;
+			// aapt resource value: 0x7f050023
+			public const int TodayDrinkLogGridML = 2131034147;
 			
-			// aapt resource value: 0x7f05001e
-			public const int TodayDrinkLogGridTime = 2131034142;
+			// aapt resource value: 0x7f050024
+			public const int TodayDrinkLogGridTime = 2131034148;
 			
 			// aapt resource value: 0x7f050019
 			public const int button_addCutomWater = 2131034137;
@@ -200,7 +218,10 @@ namespace DrinkWater
 			public const int Main = 2130903040;
 			
 			// aapt resource value: 0x7f030001
-			public const int TodayDrinkLogGridElement = 2130903041;
+			public const int TodayDrinkLogEditModal = 2130903041;
+			
+			// aapt resource value: 0x7f030002
+			public const int TodayDrinkLogGridElement = 2130903042;
 			
 			static Layout()
 			{

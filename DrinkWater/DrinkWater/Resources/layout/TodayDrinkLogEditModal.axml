@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:clickable="true"
+    android:minWidth="25px"
+    android:minHeight="25px"
+    android:background="#F8F8F8"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+    <TextView
+        android:text="Update drink log"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/DrinkLogEditModal_text"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:textColor="#414141"
+        android:textSize="20dp" />
+    <TableLayout
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:id="@+id/EditLog_tableLayout1">
+        <TableRow
+            android:id="@+id/EditLog_tableRow1"
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_marginTop="20dp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content">
+            <EditText
+                android:layout_width="69dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/DrinkLogEditModal_input"
+                android:layout_marginLeft="20dp"
+                android:textSize="25dp"
+                android:textColor="#515151"
+                android:inputType="number"
+                android:maxLength="4"
+                android:numeric="integer"
+                android:typeface="sans"
+                android:selectAllOnFocus="true"
+                android:background="@drawable/addcustomwatertextbox"
+                android:width="120dp" />
+            <TextView
+                android:text="ml"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/DrinkLogEditModal_text"
+                android:layout_marginLeft="20dp"
+                android:textColor="#414141"
+                android:textSize="20dp" />
+        </TableRow>
+    </TableLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_marginTop="40dp">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Update"
+            android:id="@+id/DrinkLogEditModal_UpdateButton"
+            android:enabled="true"
+            android:layout_marginLeft="20dp" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancel"
+            android:id="@+id/DrinkLogEditModal_CancelButton"
+            android:enabled="true"
+            android:layout_marginLeft="10dp" />
+    </LinearLayout>
+</LinearLayout>
