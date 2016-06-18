@@ -30,8 +30,11 @@
                 android:id="@+id/tableRow1"
                 android:minWidth="25px"
                 android:minHeight="25px"
-                android:layout_marginTop="5dp"
-                android:layout_height="wrap_content">
+                android:layout_marginTop="7dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/maheadersummarybox"
+                android:layout_marginLeft="7dp"
+                android:layout_marginRight="7dp">
                 <TableLayout
                     android:minWidth="25px"
                     android:minHeight="25px"
@@ -61,7 +64,7 @@
                                 <TextView
                                     android:text="Text"
                                     android:id="@+id/textView_ProgressActualsML"
-                                    android:textColor="#444444"
+                                    android:textColor="#414141"
                                     android:textSize="25dp"
                                     android:typeface="sans"
                                     android:layout_marginRight="3.5dp"
@@ -76,7 +79,7 @@
                                     android:text="/"
                                     android:id="@+id/textView_ProgressTextSlash"
                                     android:gravity="left"
-                                    android:textColor="#444444"
+                                    android:textColor="#505050"
                                     android:textSize="20dp"
                                     android:typeface="sans"
                                     android:layout_width="wrap_content"
@@ -86,7 +89,7 @@
                                     android:id="@+id/textView_TargetML"
                                     android:layout_marginLeft="3dp"
                                     android:gravity="left"
-                                    android:textColor="#444444"
+                                    android:textColor="#565656"
                                     android:textSize="17dp"
                                     android:typeface="sans"
                                     android:layout_height="wrap_content"
@@ -97,7 +100,7 @@
                                     android:layout_marginLeft="3.0dp"
                                     android:layout_marginRight="6.0dp"
                                     android:gravity="left"
-                                    android:textColor="#888888"
+                                    android:textColor="#565656"
                                     android:textSize="17dp"
                                     android:typeface="normal"
                                     android:layout_height="wrap_content"
@@ -118,7 +121,9 @@
                             android:id="@+id/progressBar_DrinkProgress"
                             android:layout_marginLeft="10.0dp"
                             android:progressDrawable="@drawable/drinkingprogressbar"
-                            android:layout_gravity="center_vertical" />
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginBottom="7dp"
+                            android:layout_marginTop="3dp" />
                     </TableRow>
                 </TableLayout>
                 <TableLayout
@@ -140,27 +145,27 @@
                             android:text="Text"
                             android:id="@+id/textView_ProgressPercent"
                             android:layout_marginLeft="3dp"
-                            android:gravity="bottom"
-                            android:textColor="#444444"
+                            android:gravity="right"
+                            android:textColor="#414141"
                             android:textSize="30dp"
                             android:typeface="sans"
-                            android:layout_height="match_parent"
+                            android:layout_height="wrap_content"
                             android:foregroundGravity="center"
                             android:layout_gravity="center"
-                            android:layout_marginBottom="1dp" />
+                            android:layout_marginBottom="3.5dp" />
                         <TextView
                             android:text="%"
                             android:id="@+id/textView_PercentTextPercent"
                             android:layout_marginLeft="1dp"
-                            android:layout_marginRight="13dp"
-                            android:gravity="bottom"
-                            android:textColor="#666666"
+                            android:layout_marginRight="18dp"
+                            android:gravity="left"
+                            android:textColor="#565656"
                             android:textSize="20dp"
                             android:typeface="sans"
-                            android:layout_height="match_parent"
-                            android:foregroundGravity="center"
+                            android:layout_height="wrap_content"
+                            android:foregroundGravity="bottom"
                             android:layout_gravity="bottom"
-                            android:layout_marginBottom="3dp"
+                            android:layout_marginBottom="4.5dp"
                             android:layout_width="wrap_content" />
                     </TableRow>
                 </TableLayout>
@@ -169,7 +174,7 @@
                 android:id="@+id/tableRow5"
                 android:minWidth="25px"
                 android:minHeight="25px"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="15dp"
                 android:layout_marginBottom="15dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.7">
@@ -179,7 +184,6 @@
                     android:layout_span="6"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp">
-                    
                     <GridView
                         android:id="@+id/TodayDrinkLogGrid"
                         android:layout_width="match_parent"
@@ -190,8 +194,8 @@
                         android:horizontalSpacing="5dp"
                         android:stretchMode="columnWidth"
                         android:gravity="center" />
-                  <TextView
-                        android:text="After drinking a glass of water click &quot;+&quot; button to record"
+                    <TextView
+                        android:text="After drinking a glass of water, click &quot;+&quot; button to record.."
                         android:id="@+id/textView_defaultTextBeforeAdd"
                         android:textColor="#888888"
                         android:textSize="20dp"
@@ -235,8 +239,8 @@
                             android:layout_height="35dp"
                             android:layout_gravity="bottom"
                             android:textSize="25dp"
-                            android:layout_marginBottom="15dp"
-                            android:textColor="#555555"
+                            android:layout_marginBottom="5dp"
+                            android:textColor="#515151"
                             android:inputType="number"
                             android:maxLength="4"
                             android:numeric="integer"
@@ -246,11 +250,11 @@
                             android:text="ml"
                             android:id="@+id/textView_customAddTextML"
                             android:layout_marginLeft="2dp"
-                            android:textColor="#888888"
+                            android:textColor="#757575"
                             android:textSize="18dp"
                             android:typeface="sans"
                             android:layout_gravity="bottom"
-                            android:layout_marginBottom="12dp"
+                            android:layout_marginBottom="4dp"
                             android:layout_width="wrap_content"
                             android:textStyle="normal" />
                         <Button
