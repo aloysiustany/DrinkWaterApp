@@ -57,10 +57,10 @@ namespace DrinkWater
 			public const int DrinkingProgressBar = 2130837507;
 			
 			// aapt resource value: 0x7f020004
-			public const int Icon = 2130837508;
+			public const int GlassIcon_Water_Bottle_96 = 2130837508;
 			
 			// aapt resource value: 0x7f020005
-			public const int Plus_Math_60 = 2130837509;
+			public const int Icon = 2130837509;
 			
 			// aapt resource value: 0x7f020006
 			public const int Plus_Math_60_Pressed = 2130837510;
@@ -87,6 +87,21 @@ namespace DrinkWater
 		public partial class Id
 		{
 			
+			// aapt resource value: 0x7f050013
+			public const int TodayDrinkLogGrid = 2131034131;
+			
+			// aapt resource value: 0x7f05001c
+			public const int TodayDrinkLogGridImage = 2131034140;
+			
+			// aapt resource value: 0x7f05001b
+			public const int TodayDrinkLogGridLinearLayout = 2131034139;
+			
+			// aapt resource value: 0x7f05001d
+			public const int TodayDrinkLogGridML = 2131034141;
+			
+			// aapt resource value: 0x7f05001e
+			public const int TodayDrinkLogGridTime = 2131034142;
+			
 			// aapt resource value: 0x7f050019
 			public const int button_addCutomWater = 2131034137;
 			
@@ -96,8 +111,8 @@ namespace DrinkWater
 			// aapt resource value: 0x7f050017
 			public const int editText_customAddWater = 2131034135;
 			
-			// aapt resource value: 0x7f050011
-			public const int frameLayout_middleMan = 2131034129;
+			// aapt resource value: 0x7f050012
+			public const int frameLayout_middleMan = 2131034130;
 			
 			// aapt resource value: 0x7f05000c
 			public const int progressBar_DrinkProgress = 2131034124;
@@ -132,8 +147,8 @@ namespace DrinkWater
 			// aapt resource value: 0x7f05000b
 			public const int tableRow4 = 2131034123;
 			
-			// aapt resource value: 0x7f050014
-			public const int tableRow5 = 2131034132;
+			// aapt resource value: 0x7f050011
+			public const int tableRow5 = 2131034129;
 			
 			// aapt resource value: 0x7f05000e
 			public const int tableRow7 = 2131034126;
@@ -162,11 +177,8 @@ namespace DrinkWater
 			// aapt resource value: 0x7f050018
 			public const int textView_customAddTextML = 2131034136;
 			
-			// aapt resource value: 0x7f050012
-			public const int textView_defaultTextBeforeAdd = 2131034130;
-			
-			// aapt resource value: 0x7f050013
-			public const int textView_defaultTextBeforeAdd_1 = 2131034131;
+			// aapt resource value: 0x7f050014
+			public const int textView_defaultTextBeforeAdd = 2131034132;
 			
 			static Id()
 			{
@@ -183,6 +195,9 @@ namespace DrinkWater
 			
 			// aapt resource value: 0x7f030000
 			public const int Main = 2130903040;
+			
+			// aapt resource value: 0x7f030001
+			public const int TodayDrinkLogGridElement = 2130903041;
 			
 			static Layout()
 			{

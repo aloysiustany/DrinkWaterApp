@@ -166,17 +166,31 @@
                 </TableLayout>
             </TableRow>
             <TableRow
-                android:id="@+id/tableRow4"
+                android:id="@+id/tableRow5"
                 android:minWidth="25px"
                 android:minHeight="25px"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="15dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.7">
                 <FrameLayout
-                  android:id="@+id/frameLayout_middleMan"
-                    android:layout_width="250dp"
-                    android:layout_height="fill_parent">
-                    <TextView
+                    android:id="@+id/frameLayout_middleMan"
+                    android:layout_height="fill_parent"
+                    android:layout_span="6"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp">
+                    
+                    <GridView
+                        android:id="@+id/TodayDrinkLogGrid"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:columnWidth="80dp"
+                        android:numColumns="auto_fit"
+                        android:verticalSpacing="17dp"
+                        android:horizontalSpacing="5dp"
+                        android:stretchMode="columnWidth"
+                        android:gravity="center" />
+                  <TextView
                         android:text="After drinking a glass of water click &quot;+&quot; button to record"
                         android:id="@+id/textView_defaultTextBeforeAdd"
                         android:textColor="#888888"
@@ -184,18 +198,7 @@
                         android:typeface="sans"
                         android:layout_gravity="center"
                         android:layout_width="fill_parent"
-                        android:layout_height="wrap_content" 
-                        android:textStyle="normal"
-                        android:gravity="center" />
-                    <TextView
-                        android:text="So much for this"
-                        android:id="@+id/textView_defaultTextBeforeAdd_1"
-                        android:textColor="#777777"
-                        android:textSize="20dp"
-                        android:typeface="sans"
-                        android:layout_gravity="center"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content" 
+                        android:layout_height="wrap_content"
                         android:textStyle="normal"
                         android:gravity="center" />
                 </FrameLayout>
