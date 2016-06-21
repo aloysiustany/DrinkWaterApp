@@ -11,6 +11,8 @@ using Android.Views;
 using Android.Widget;
 using Android.Util;
 using static Android.Widget.AbsListView;
+using Android.Support.V7.App;
+
 
 namespace DrinkWater
 {
@@ -55,6 +57,7 @@ namespace DrinkWater
             gridview.Adapter = new TodayDrinkLogGridAdapter(this);
 
             gridview.ItemClick += ((TodayDrinkLogGridAdapter)gridview.Adapter).itemClicked;
+            
         }
     }
 }

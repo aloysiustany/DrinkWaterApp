@@ -126,10 +126,14 @@ namespace DrinkWater
             
             Toast.MakeText(this.context, args.Position.ToString() , ToastLength.Short).Show();
 
-            Dialog dialog = new Dialog(context);
-            dialog.SetContentView(Resource.Layout.TodayDrinkLogEditModal);
-            dialog.SetTitle("Hello There!");
-            dialog.Show();
+            /*  Dialog dialog = new Dialog(context);
+              dialog.SetContentView(Resource.Layout.TodayDrinkLogEditModal);
+              dialog.SetTitle("Hello There!");
+              dialog.Show();
+              */
+
+            TodayDrinkLogEditModalClass obj = new TodayDrinkLogEditModalClass();
+            obj.Show(((Activity)context).FragmentManager, "hiiii");
         }
 
     }
