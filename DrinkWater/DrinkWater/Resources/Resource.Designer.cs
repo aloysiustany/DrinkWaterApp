@@ -1498,6 +1498,9 @@ namespace DrinkWater
 			// aapt resource value: 0x7f0b007d
 			public const int EditLog_tableRow2 = 2131427453;
 			
+			// aapt resource value: 0x7f0b0050
+			public const int MainView = 2131427408;
+			
 			// aapt resource value: 0x7f0b0063
 			public const int TodayDrinkLogGrid = 2131427427;
 			
@@ -1704,9 +1707,6 @@ namespace DrinkWater
 			
 			// aapt resource value: 0x7f0b0033
 			public const int scrollView = 2131427379;
-			
-			// aapt resource value: 0x7f0b0050
-			public const int scroller = 2131427408;
 			
 			// aapt resource value: 0x7f0b0045
 			public const int search_badge = 2131427397;

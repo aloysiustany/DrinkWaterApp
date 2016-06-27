@@ -16,70 +16,22 @@ namespace DrinkWater
     {
         private readonly Context context;
 
-        String[] web = {
-            "250",
-            "200",
-            "1200",
-            "1000",
-            "100",
-            "900",
-            "900",
-            "250",
-            "250",
-            "1000",
-            "500",
-            "100",
-            "300",
-            "250",
-            "600",
-            "1000",
-            "250",
-            "300",
-             "250",
-            "250",
-            "250",
-             "300",
-            "1000",
-            "250"
-
-    };
-        int[] imageId = {
-            Resource.Drawable.GlassIcon_Water_Bottle_96,
-            Resource.Drawable.GlassIcon_Water_Bottle_96,
-            Resource.Drawable.GlassIcon_Water_Bottle_96,
-            Resource.Drawable.GlassIcon_Water_Bottle_96,
-            Resource.Drawable.GlassIcon_Water_Bottle_96,
-            Resource.Drawable.GlassIcon_Water_Bottle_96,
-            Resource.Drawable.GlassIcon_Water_Bottle_96,
-            Resource.Drawable.GlassIcon_Water_Bottle_96,
-            Resource.Drawable.GlassIcon_Water_Bottle_96,
-            Resource.Drawable.GlassIcon_Water_Bottle_96,
-            Resource.Drawable.GlassIcon_Water_Bottle_96,
-            Resource.Drawable.GlassIcon_Water_Bottle_96,
-            Resource.Drawable.GlassIcon_Water_Bottle_96,
-            Resource.Drawable.GlassIcon_Water_Bottle_96,
-            Resource.Drawable.GlassIcon_Water_Bottle_96,
-            Resource.Drawable.GlassIcon_Water_Bottle_96,
-            Resource.Drawable.GlassIcon_Water_Bottle_96,
-            Resource.Drawable.GlassIcon_Water_Bottle_96,
-            Resource.Drawable.GlassIcon_Water_Bottle_96,
-            Resource.Drawable.GlassIcon_Water_Bottle_96,
-            Resource.Drawable.GlassIcon_Water_Bottle_96,
-            Resource.Drawable.GlassIcon_Water_Bottle_96,
-            Resource.Drawable.GlassIcon_Water_Bottle_96,
-            Resource.Drawable.GlassIcon_Water_Bottle_96
-
-    };
+     //   private List<DrinkLog> drinkLogList = new List<DrinkLog>();
 
         public TodayDrinkLogGridAdapter(Context c)
         {
             context = c;
+
+            for(int i=0;i<10;i++)
+            {
+        //        drinkLogList.Add(new DrinkLog(120 * i));
+            }
             
         }
 
         public override int Count
         {
-            get { return imageId.Length; }
+            get { return ((DW_MainActivity)context).drinkLogList.Count; }
         }
 
        
@@ -110,10 +62,12 @@ namespace DrinkWater
                 TextView textViewML = (TextView)grid.FindViewById(Resource.Id.TodayDrinkLogGridML);
                 TextView textViewTime = (TextView)grid.FindViewById(Resource.Id.TodayDrinkLogGridTime);
                 ImageView imageViewGlass = (ImageView)grid.FindViewById(Resource.Id.TodayDrinkLogGridImage);
-                textViewML.Text = web[position] + " ml";
-                DateTime now = DateTime.Now.ToLocalTime();
-                textViewTime.Text = now.ToShortTimeString();
-                imageViewGlass.SetImageResource(imageId[position]);
+                if (position < ((DW_MainActivity)context).drinkLogList.Count)
+                {
+                    textViewML.Text = ((DW_MainActivity)context).drinkLogList[position].volumeML.ToString() + " ml";
+                    textViewTime.Text = ((DW_MainActivity)context).drinkLogList[position].time;
+                    imageViewGlass.SetImageResource(((DW_MainActivity)context).drinkLogList[position].iconRef);
+                }
             }
 
             return grid;
@@ -122,19 +76,20 @@ namespace DrinkWater
         public void itemClicked(Object sender, AdapterView.ItemClickEventArgs args)
         {
             TodayDrinkLogEditModalClass obj = new TodayDrinkLogEditModalClass(this);
-            obj.volumeML = double.Parse(web[args.Position]);
+            obj.volumeML = ((DW_MainActivity)context).drinkLogList[args.Position].volumeML;
             obj.position = args.Position;
             obj.Show(((Activity)context).FragmentManager, "EditDrinkLog");
         }
 
         public void onDialogOKClick(string text, int position)
         {
-            web[position] = text;
+            ((DW_MainActivity)context).drinkLogList[position].volumeML = double.Parse(text);
+            this.NotifyDataSetChanged();
         }
 
         public void onDialogDelClick(int position)
         {
-            //todo
+            ((DW_MainActivity)context).drinkLogList.RemoveAt(position);
             this.NotifyDataSetChanged();
         }
     }

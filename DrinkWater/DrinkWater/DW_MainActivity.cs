@@ -12,15 +12,15 @@ using Android.Widget;
 using Android.Util;
 using static Android.Widget.AbsListView;
 using Android.Support.V7.App;
-
+using Android.Views.InputMethods;
 
 namespace DrinkWater
 {
     [Activity(Label = "Drink Water", MainLauncher = true, Icon = "@drawable/GlassIcon_Water_Bottle_96")]
     class DW_MainActivity : Activity
     {
-        int count = 1;
-
+        public List<DrinkLog> drinkLogList = new List<DrinkLog>();
+        GridView gridview;
 
 
         protected override void OnCreate(Bundle bundle)
@@ -32,9 +32,9 @@ namespace DrinkWater
 
             // Get our button from the layout resource,
             // and attach an event to it
-            // Button button = FindViewById<Button>(Resource.Id.MyButton);
+            Button buttonAddDrink = FindViewById<Button>(Resource.Id.button_addCutomWater);
 
-            //    button.Click += delegate { button.Text = string.Format("{0} clicks!", count++); };
+            buttonAddDrink.Click += onClickAddDrink;
 
             TextView tv = FindViewById<TextView>(Resource.Id.textView_defaultTextBeforeAdd);
             //  TextView tv1 = FindViewById<TextView>(Resource.Id.textView_defaultTextBeforeAdd_1);
@@ -53,11 +53,25 @@ namespace DrinkWater
             tv.Visibility = ViewStates.Gone;
             //   tv1.Visibility = ViewStates.Gone;
 
-            var gridview = FindViewById<GridView>(Resource.Id.TodayDrinkLogGrid);
+            gridview = FindViewById<GridView>(Resource.Id.TodayDrinkLogGrid);
             gridview.Adapter = new TodayDrinkLogGridAdapter(this);
 
             gridview.ItemClick += ((TodayDrinkLogGridAdapter)gridview.Adapter).itemClicked;
-            
+
+        }
+
+        public void onClickAddDrink(object sender, EventArgs e)
+        {
+            drinkLogList.Add(new DrinkLog(double.Parse(FindViewById<EditText>(Resource.Id.editText_customAddWater).Text)));
+
+            ((TodayDrinkLogGridAdapter)gridview.Adapter).NotifyDataSetChanged();
+
+            FindViewById<EditText>(Resource.Id.editText_customAddWater).Text = "";
+            FindViewById<EditText>(Resource.Id.editText_customAddWater).ClearFocus();
+
+            //remove keyboard
+            InputMethodManager imm = (InputMethodManager)GetSystemService(Context.InputMethodService);
+            imm.HideSoftInputFromWindow(FindViewById<EditText>(Resource.Id.editText_customAddWater).WindowToken, 0);
         }
     }
 }
