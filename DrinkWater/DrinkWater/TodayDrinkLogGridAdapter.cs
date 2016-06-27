@@ -114,8 +114,6 @@ namespace DrinkWater
                 DateTime now = DateTime.Now.ToLocalTime();
                 textViewTime.Text = now.ToShortTimeString();
                 imageViewGlass.SetImageResource(imageId[position]);
-
-            //    parent.
             }
 
             return grid;
@@ -123,18 +121,21 @@ namespace DrinkWater
 
         public void itemClicked(Object sender, AdapterView.ItemClickEventArgs args)
         {
-            
-            Toast.MakeText(this.context, args.Position.ToString() , ToastLength.Short).Show();
-
-            /*  Dialog dialog = new Dialog(context);
-              dialog.SetContentView(Resource.Layout.TodayDrinkLogEditModal);
-              dialog.SetTitle("Hello There!");
-              dialog.Show();
-              */
-
-            TodayDrinkLogEditModalClass obj = new TodayDrinkLogEditModalClass();
-            obj.Show(((Activity)context).FragmentManager, "hiiii");
+            TodayDrinkLogEditModalClass obj = new TodayDrinkLogEditModalClass(this);
+            obj.volumeML = double.Parse(web[args.Position]);
+            obj.position = args.Position;
+            obj.Show(((Activity)context).FragmentManager, "EditDrinkLog");
         }
 
+        public void onDialogOKClick(string text, int position)
+        {
+            web[position] = text;
+        }
+
+        public void onDialogDelClick(int position)
+        {
+            //todo
+            this.NotifyDataSetChanged();
+        }
     }
 }

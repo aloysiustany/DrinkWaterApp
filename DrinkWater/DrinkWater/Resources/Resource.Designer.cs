@@ -1420,31 +1420,43 @@ namespace DrinkWater
 			public const int AddPrevWaterButton = 2130837575;
 			
 			// aapt resource value: 0x7f020048
-			public const int DrinkingProgressBar = 2130837576;
+			public const int ButtonBkGrndBoxTrans = 2130837576;
 			
 			// aapt resource value: 0x7f020049
-			public const int GlassIcon_Water_Bottle_96 = 2130837577;
+			public const int Delete_icon_33 = 2130837577;
 			
 			// aapt resource value: 0x7f02004a
-			public const int Icon = 2130837578;
+			public const int DrinkingProgressBar = 2130837578;
 			
 			// aapt resource value: 0x7f02004b
-			public const int MAHeaderSummaryBox = 2130837579;
-			
-			// aapt resource value: 0x7f020050
-			public const int notification_template_icon_bg = 2130837584;
+			public const int GlassIcon_Water_Bottle_96 = 2130837579;
 			
 			// aapt resource value: 0x7f02004c
-			public const int Plus_Math_60_Pressed = 2130837580;
+			public const int Icon = 2130837580;
 			
 			// aapt resource value: 0x7f02004d
-			public const int Plus_Math_60_Shadow = 2130837581;
+			public const int MAHeaderSummaryBox = 2130837581;
+			
+			// aapt resource value: 0x7f020054
+			public const int notification_template_icon_bg = 2130837588;
 			
 			// aapt resource value: 0x7f02004e
-			public const int Recurring_Icon_60_Pressed = 2130837582;
+			public const int Ok_icon_32 = 2130837582;
 			
 			// aapt resource value: 0x7f02004f
-			public const int Recurring_Icon_60_Shadow = 2130837583;
+			public const int Plus_Math_60_Pressed = 2130837583;
+			
+			// aapt resource value: 0x7f020050
+			public const int Plus_Math_60_Shadow = 2130837584;
+			
+			// aapt resource value: 0x7f020051
+			public const int Recurring_Icon_60_Pressed = 2130837585;
+			
+			// aapt resource value: 0x7f020052
+			public const int Recurring_Icon_60_Shadow = 2130837586;
+			
+			// aapt resource value: 0x7f020053
+			public const int Undo_icon_33 = 2130837587;
 			
 			static Drawable()
 			{
@@ -1459,11 +1471,14 @@ namespace DrinkWater
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f0b007d
-			public const int DrinkLogEditModal_CancelButton = 2131427453;
+			// aapt resource value: 0x7f0b007f
+			public const int DrinkLogEditModal_DelBtn = 2131427455;
 			
-			// aapt resource value: 0x7f0b007c
-			public const int DrinkLogEditModal_UpdateButton = 2131427452;
+			// aapt resource value: 0x7f0b0080
+			public const int DrinkLogEditModal_OkBtn = 2131427456;
+			
+			// aapt resource value: 0x7f0b007e
+			public const int DrinkLogEditModal_UndoBtn = 2131427454;
 			
 			// aapt resource value: 0x7f0b007b
 			public const int DrinkLogEditModal_input = 2131427451;
@@ -1474,23 +1489,29 @@ namespace DrinkWater
 			// aapt resource value: 0x7f0b0079
 			public const int EditLog_tableLayout1 = 2131427449;
 			
+			// aapt resource value: 0x7f0b007c
+			public const int EditLog_tableLayout2 = 2131427452;
+			
 			// aapt resource value: 0x7f0b007a
 			public const int EditLog_tableRow1 = 2131427450;
+			
+			// aapt resource value: 0x7f0b007d
+			public const int EditLog_tableRow2 = 2131427453;
 			
 			// aapt resource value: 0x7f0b0063
 			public const int TodayDrinkLogGrid = 2131427427;
 			
-			// aapt resource value: 0x7f0b007f
-			public const int TodayDrinkLogGridImage = 2131427455;
-			
-			// aapt resource value: 0x7f0b007e
-			public const int TodayDrinkLogGridLinearLayout = 2131427454;
-			
-			// aapt resource value: 0x7f0b0080
-			public const int TodayDrinkLogGridML = 2131427456;
+			// aapt resource value: 0x7f0b0082
+			public const int TodayDrinkLogGridImage = 2131427458;
 			
 			// aapt resource value: 0x7f0b0081
-			public const int TodayDrinkLogGridTime = 2131427457;
+			public const int TodayDrinkLogGridLinearLayout = 2131427457;
+			
+			// aapt resource value: 0x7f0b0083
+			public const int TodayDrinkLogGridML = 2131427459;
+			
+			// aapt resource value: 0x7f0b0084
+			public const int TodayDrinkLogGridTime = 2131427460;
 			
 			// aapt resource value: 0x7f0b006b
 			public const int action0 = 2131427435;

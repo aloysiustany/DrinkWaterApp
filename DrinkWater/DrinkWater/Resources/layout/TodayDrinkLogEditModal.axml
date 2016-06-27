@@ -11,7 +11,7 @@
     android:focusableInTouchMode="true"
     style="@style/EditLogModalTheme">
     <TextView
-        android:text="Update drink log"
+        android:text="Update Drink Log:"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/DrinkLogEditModal_text"
@@ -56,26 +56,63 @@
                 android:textSize="20dp" />
         </TableRow>
     </TableLayout>
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+    <TableLayout
         android:minWidth="25px"
         android:minHeight="25px"
-        android:layout_marginTop="40dp">
-        <Button
-            android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:id="@+id/EditLog_tableLayout2"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+        <TableRow
+            android:id="@+id/EditLog_tableRow2"
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="25dp"
             android:layout_height="wrap_content"
-            android:text="Update"
-            android:id="@+id/DrinkLogEditModal_UpdateButton"
-            android:enabled="true"
-            android:layout_marginLeft="20dp" />
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Cancel"
-            android:id="@+id/DrinkLogEditModal_CancelButton"
-            android:enabled="true"
-            android:layout_marginLeft="10dp" />
-    </LinearLayout>
+            android:layout_width="match_parent">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="0.33"
+                android:minWidth="25px"
+                android:minHeight="25px">
+                <ImageButton
+                    android:src="@drawable/undo_icon_33"
+                    android:layout_width="62dp"
+                    android:layout_height="38dp"
+                    android:id="@+id/DrinkLogEditModal_UndoBtn"
+                    android:layout_gravity="left"
+                    android:background="@drawable/buttonbkgrndboxtrans" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="0.33">
+                <ImageButton
+                    android:src="@drawable/delete_icon_33"
+                    android:layout_width="62dp"
+                    android:layout_height="38dp"
+                    android:id="@+id/DrinkLogEditModal_DelBtn"
+                    android:layout_gravity="center"
+                    android:background="@drawable/buttonbkgrndboxtrans" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="0.33">
+                <ImageButton
+                    android:src="@drawable/ok_icon_32"
+                    android:layout_width="62dp"
+                    android:layout_height="38dp"
+                    android:id="@+id/DrinkLogEditModal_OkBtn"
+                    android:layout_gravity="right"
+                    android:background="@drawable/buttonbkgrndboxtrans" />
+            </LinearLayout>
+        </TableRow>
+    </TableLayout>
 </LinearLayout>
