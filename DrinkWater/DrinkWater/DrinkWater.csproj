@@ -59,10 +59,14 @@
     <Compile Include="DW_MainActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SQLite.cs" />
+    <Compile Include="SQLiteAsync.cs" />
     <Compile Include="TodayDrinkLogEditModalClass.cs" />
     <Compile Include="TodayDrinkLogGridAdapter.cs" />
+    <Compile Include="utils.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <AndroidResource Include="Resources\drawable\AddCustomWaterButton.axml">

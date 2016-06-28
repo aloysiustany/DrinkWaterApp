@@ -85,12 +85,17 @@ namespace DrinkWater
         {
             ((DW_MainActivity)context).drinkLogList[position].volumeML = double.Parse(text);
             this.NotifyDataSetChanged();
+
+            ((DW_MainActivity)context).computeProgressTexts();
         }
 
         public void onDialogDelClick(int position)
         {
             ((DW_MainActivity)context).drinkLogList.RemoveAt(position);
             this.NotifyDataSetChanged();
+
+            ((DW_MainActivity)context).showHideNoDrinkDefaultText();
+            ((DW_MainActivity)context).computeProgressTexts();
         }
     }
 }
