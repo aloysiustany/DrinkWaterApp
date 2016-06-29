@@ -21,15 +21,12 @@ namespace DrinkWater
     [Activity(Label = "Drink Water", MainLauncher = true, Icon = "@drawable/GlassIcon_Water_Bottle_96")]
     class DW_MainActivity : Activity
     {
-        public List<DrinkLog> drinkLogList = new List<DrinkLog>();
-        public DrinkLog lastDrinkLog = null;
+        public List<DrinkLog> drinkLogList = null;
+    //    public DrinkLog lastDrinkLog = null;
         public double Curr_Weight = 0;
         public int Exercise_Min = 0;
         public utils.Weight_Unit Pref_Weight_Unit = utils.Weight_Unit.Unit_Kg;
         public utils.Volume_Unit Pref_Volume_Unit = utils.Volume_Unit.Unit_mL;
-
-        SQLiteConnection db_connection;
-
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -41,6 +38,8 @@ namespace DrinkWater
             // Asssign on click events to add water and repeat drink buttons
             FindViewById<Button>(Resource.Id.button_addCutomWater).Click += onClickAddDrink;
             FindViewById<Button>(Resource.Id.button_addPrevWater).Click += onClickRepeatDrink;
+
+            drinkLogList = DBServices.Instance.SelectDrinkLogEntries(utils.getDateLongString(0));
 
             FindViewById<GridView>(Resource.Id.TodayDrinkLogGrid).Adapter = new TodayDrinkLogGridAdapter(this);
             FindViewById<GridView>(Resource.Id.TodayDrinkLogGrid).ItemClick +=
@@ -55,9 +54,6 @@ namespace DrinkWater
             updateWeight(Curr_Weight, Pref_Weight_Unit);
 
             computeProgressTexts();
-
-            string folder = System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData);
-            createDatabase(folder);
         }
 
         public void onClickAddDrink(object sender, EventArgs e)
@@ -65,7 +61,10 @@ namespace DrinkWater
             if (!FindViewById<EditText>(Resource.Id.editText_customAddWater).Text.Trim().Equals(""))
             {
                 DrinkLog newDrinkLog = new DrinkLog(double.Parse(FindViewById<EditText>(Resource.Id.editText_customAddWater).Text));
+
                 drinkLogList.Add(newDrinkLog);
+
+                DBServices.Instance.AddDrinkLogEntry(newDrinkLog);
 
                 ((TodayDrinkLogGridAdapter)FindViewById<GridView>(Resource.Id.TodayDrinkLogGrid).Adapter).NotifyDataSetChanged();
 
@@ -82,15 +81,20 @@ namespace DrinkWater
                 imm.HideSoftInputFromWindow(FindViewById<EditText>(Resource.Id.editText_customAddWater).WindowToken, 0);
 
                 //record last drink log
-                lastDrinkLog = new DrinkLog(newDrinkLog.volumeML, newDrinkLog.iconRef);
+                // lastDrinkLog = new DrinkLog(newDrinkLog.volumeML, newDrinkLog.iconRef);
+                DBServices.Instance.UpdatePrevDrinkLog(newDrinkLog);
             }
         }
 
         public void onClickRepeatDrink(object sender, EventArgs e)
         {
-            if (lastDrinkLog != null)
+            DrinkLog prev_drink_log = DBServices.Instance.SelectDrinkLogPrev();
+
+            if (prev_drink_log != null)
             {
-                drinkLogList.Add(new DrinkLog(lastDrinkLog.volumeML, lastDrinkLog.iconRef));
+                drinkLogList.Add(prev_drink_log);
+
+                DBServices.Instance.AddDrinkLogEntry(prev_drink_log);
 
                 ((TodayDrinkLogGridAdapter)FindViewById<GridView>(Resource.Id.TodayDrinkLogGrid).Adapter).NotifyDataSetChanged();
 
@@ -98,8 +102,6 @@ namespace DrinkWater
 
                 computeProgressTexts();
             }
-
-            
 
         }
 
@@ -120,7 +122,7 @@ namespace DrinkWater
             FindViewById<TextView>(Resource.Id.textView_ProgressActualsML).Text = drinkLogList.Sum(x => x.volumeML).ToString();
 
             double percentage = ((double.Parse(FindViewById<TextView>(Resource.Id.textView_ProgressActualsML).Text) /
-                       double.Parse(FindViewById<TextView>(Resource.Id.textView_TargetML).Text)) * 100);
+                      double.Parse(FindViewById<TextView>(Resource.Id.textView_TargetML).Text)) * 100);
 
             if (((int)percentage).ToString().Length > 3)
             {
@@ -140,7 +142,7 @@ namespace DrinkWater
 
             FindViewById<TextView>(Resource.Id.textView_ProgressPercent).Text = percentage.ToString("#.#");
 
-            if  (FindViewById<TextView>(Resource.Id.textView_ProgressPercent).Text.Trim().Equals(""))
+            if (FindViewById<TextView>(Resource.Id.textView_ProgressPercent).Text.Trim().Equals(""))
             {
                 FindViewById<TextView>(Resource.Id.textView_ProgressPercent).Text = "0";
             }
@@ -154,31 +156,6 @@ namespace DrinkWater
             Pref_Weight_Unit = unit;
 
             FindViewById<TextView>(Resource.Id.textView_TargetML).Text = ((int)(utils.calcWaterRequirement(Curr_Weight, Pref_Weight_Unit, Pref_Volume_Unit, Exercise_Min))).ToString();
-        }
-
-        private string createDatabase(string path)
-        {
-            try
-            {
-                db_connection = new SQLiteConnection(path);
-
-                if (!TableExists<DrinkLog>(db_connection))
-                {
-                    db_connection.CreateTable<DrinkLog>();                
-                }
-                return "Database created ";
-            }
-            catch (SQLiteException ex)
-            {
-                return ex.Message;
-            }
-        }
-
-        public static bool TableExists<T>(SQLiteConnection connection)
-        {
-            const string cmdText = "SELECT name FROM sqlite_master WHERE type='table' AND name=?";
-            var cmd = connection.CreateCommand(cmdText, typeof(T).Name);
-            return cmd.ExecuteScalar<string>() != null;
         }
 
         //only for debugging. remove on final build.

@@ -131,5 +131,10 @@ namespace DrinkWater
 
             return ret_val;
         }
+
+        public static string getDateLongString(int negative_offset_days)
+        {
+            return DateTime.Now.Subtract(new TimeSpan(negative_offset_days, 0, 0, 0)).ToLongDateString();
+        }
     }
 }

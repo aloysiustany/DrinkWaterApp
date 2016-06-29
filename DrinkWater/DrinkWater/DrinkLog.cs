@@ -18,14 +18,13 @@ namespace DrinkWater
         [PrimaryKey, AutoIncrement]
         public int ID { get; set; }
 
-        public double volumeML { get; set; }
-
-        public int iconRef { get; set; }
-
         public string time { get; set; }
 
         public string date { get; set; }
 
+        public double volumeML { get; set; }
+
+        public int iconRef { get; set; }
 
         public DrinkLog()
         {
@@ -35,7 +34,7 @@ namespace DrinkWater
 
             time = DateTime.Now.ToLocalTime().ToShortTimeString();
 
-            date = DateTime.Now.ToLongDateString();
+            date = utils.getDateLongString(0);
         }
 
         public DrinkLog(double volume)
@@ -46,7 +45,7 @@ namespace DrinkWater
 
             time = DateTime.Now.ToLocalTime().ToShortTimeString();
 
-            date = DateTime.Now.ToLongDateString();
+            date = utils.getDateLongString(0);
         }
 
         public DrinkLog(double volume, int iconReference)
@@ -57,7 +56,7 @@ namespace DrinkWater
 
             time = DateTime.Now.ToLocalTime().ToShortTimeString();
 
-            date = DateTime.Now.ToLongDateString();
+            date = utils.getDateLongString(0);
         }
 
         public DrinkLog(double volume, int iconReference, string timeOfDrinking)
@@ -68,7 +67,31 @@ namespace DrinkWater
 
             time = timeOfDrinking;
 
-            date = DateTime.Now.ToLongDateString();
+            date = utils.getDateLongString(0);
+        }
+
+        public DrinkLog(double volume, int iconReference, string timeOfDrinking, string dateOfDrinking, int PK_ID)
+        {
+            volumeML = volume;
+
+            iconRef = iconReference;
+
+            time = timeOfDrinking;
+
+            date = dateOfDrinking;
+
+            ID = PK_ID;
+        }
+
+        public DrinkLog(DrinkLogPrev obj)
+        {
+            this.volumeML = obj.volumeML;
+
+            this.iconRef = obj.iconRef;
+
+            time = DateTime.Now.ToLocalTime().ToShortTimeString();
+
+            date = utils.getDateLongString(0);
         }
 
         public override string ToString()
@@ -76,5 +99,27 @@ namespace DrinkWater
             return string.Format("[DrinkLog: ID={0}, volumeML={1}, iconRef={2}, time={3}, date={4}]", ID, volumeML, iconRef, time, date);
         }
 
+    }
+
+    class DrinkLogPrev
+    {
+        public double volumeML { get; set; }
+
+        public int iconRef { get; set; }
+
+        public DrinkLogPrev(DrinkLog obj)
+        {
+            this.volumeML = obj.volumeML;
+            this.iconRef = obj.iconRef;
+        }
+
+        // DB Querry needs a public parameterless constructor.
+
+        public DrinkLogPrev()
+        {
+            volumeML = 0.0;
+
+            iconRef = Resource.Drawable.GlassIcon_Water_Bottle_96;
+        }
     }
 }

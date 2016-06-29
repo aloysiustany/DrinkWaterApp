@@ -55,6 +55,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DBServices.cs" />
     <Compile Include="DrinkLog.cs" />
     <Compile Include="DW_MainActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />

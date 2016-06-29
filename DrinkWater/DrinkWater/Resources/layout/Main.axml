@@ -106,6 +106,13 @@
                                     android:typeface="normal"
                                     android:layout_height="wrap_content"
                                     android:textStyle="normal" />
+                              <ImageButton
+                    android:src="@drawable/ok_icon_32"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:id="@+id/ImageButton_EditTarget"
+                    android:layout_gravity="right"
+                     />
                             </TableRow>
                         </TableLayout>
                     </TableRow>
