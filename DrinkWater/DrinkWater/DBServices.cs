@@ -57,9 +57,14 @@ namespace DrinkWater
 
             createDatabase(dir.AbsolutePath + "/DrinkLog.db");
 
+            // To be enabled only to completely drop all tables. Keep this call commented at all other times.
+            //dropTables();
+
             createTable<DrinkLog>();
 
             createTable<DrinkLogPrev>();
+
+            createTable<PersonalSpec>();
         }
 
         private string createDatabase(string path)
@@ -93,6 +98,57 @@ namespace DrinkWater
                     }
                     Log.Info("DBServices", "Table already exists");
                     return "Table already exists";
+                }
+                Log.Warn("DBServices", "DB connection does not exist");
+                return "DB connection does not exist";
+            }
+            catch (SQLiteException ex)
+            {
+                Log.Warn("DBServices", ex.Message);
+                return ex.Message;
+            }
+        }
+
+        private string dropTables()
+        {
+            try
+            {
+                if (db_connection != null)
+                {
+                    if (TableExists<DrinkLog>())
+                    {
+                        db_connection.DropTable<DrinkLog>();
+
+                        Log.Info("DBServices", "Table DrinkLog deleted");
+                    }
+                    else
+                    {
+                        Log.Info("DBServices", "Table DrinkLog does not exists");
+                    }
+
+                    if (TableExists<DrinkLogPrev>())
+                    {
+                        db_connection.DropTable<DrinkLogPrev>();
+
+                        Log.Info("DBServices", "Table DrinkLogPrev deleted");
+                    }
+                    else
+                    {
+                        Log.Info("DBServices", "Table DrinkLogPrev does not exists");
+                    }
+
+                    if (TableExists<PersonalSpec>())
+                    {
+                        db_connection.DropTable<PersonalSpec>();
+
+                        Log.Info("DBServices", "Table PersonalSpec deleted");
+                    }
+                    else
+                    {
+                        Log.Info("DBServices", "Table PersonalSpec does not exists");
+                    }
+
+                    return "Tables deleted";
                 }
                 Log.Warn("DBServices", "DB connection does not exist");
                 return "DB connection does not exist";
@@ -226,10 +282,62 @@ namespace DrinkWater
                     List<DrinkLogPrev> list = db_connection.Query<DrinkLogPrev>("SELECT * FROM DrinkLogPrev");
                     if (list != null && list.Count != 0)
                     {
-                        // Only one row should be there in DrinkLogPrev table
+                        // Only one row would be there in DrinkLogPrev table
                         return new DrinkLog(list[0]);
                     }
                     Log.Warn("DBServices", "DrinkLogPrev did not return anything");
+                    return null;
+                }
+                Log.Warn("DBServices", "DB connection does not exist");
+                return null;
+            }
+            catch (SQLiteException ex)
+            {
+                Log.Warn("DBServices", ex.Message);
+                return null;
+            }
+        }
+
+        public string UpdateCurrentPersonalSpec(PersonalSpec obj)
+        {
+            try
+            {
+                if (db_connection != null)
+                {
+                    // Only one row should contain isSpecCurrent as true. Old current should be made as false (if any).
+
+                    PersonalSpec oldSpec = SelectCurrentPersonalSpec();
+                    if (oldSpec != null)
+                    {
+                        oldSpec.isSpecCurrent = 0;
+                        db_connection.Update(oldSpec);
+                    }
+
+                    return db_connection.Insert(obj).ToString();
+                }
+                Log.Warn("DBServices", "DB connection does not exist");
+                return "DB connection does not exist";
+            }
+            catch (SQLiteException ex)
+            {
+                Log.Warn("DBServices", ex.Message);
+                return ex.Message;
+            }
+        }
+
+        public PersonalSpec SelectCurrentPersonalSpec()
+        {
+            try
+            {
+                if (db_connection != null)
+                {
+                    List<PersonalSpec> list = db_connection.Query<PersonalSpec>("SELECT * FROM PersonalSpec WHERE isSpecCurrent=1");
+                    if (list != null && list.Count != 0)
+                    {
+                        // Only one row would be there in PersonalSpec table with isSpecCurrent as true
+                        return list[0];
+                    }
+                    Log.Warn("DBServices", "PersonalSpec did not return anything");
                     return null;
                 }
                 Log.Warn("DBServices", "DB connection does not exist");

@@ -93,12 +93,6 @@ namespace DrinkWater
 
             date = utils.getDateLongString(0);
         }
-
-        public override string ToString()
-        {
-            return string.Format("[DrinkLog: ID={0}, volumeML={1}, iconRef={2}, time={3}, date={4}]", ID, volumeML, iconRef, time, date);
-        }
-
     }
 
     class DrinkLogPrev

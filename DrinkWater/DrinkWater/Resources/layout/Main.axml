@@ -106,13 +106,16 @@
                                     android:typeface="normal"
                                     android:layout_height="wrap_content"
                                     android:textStyle="normal" />
-                              <ImageButton
-                    android:src="@drawable/ok_icon_32"
-                    android:layout_width="15dp"
-                    android:layout_height="15dp"
-                    android:id="@+id/ImageButton_EditTarget"
-                    android:layout_gravity="right"
-                     />
+                                <ImageButton
+                                    android:layout_width="20sp"
+                                    android:layout_height="20sp"
+                                    android:id="@+id/ImageButton_EditTarget"
+                                    android:layout_gravity="bottom"
+                                    android:layout_marginBottom="5dp"
+                                    android:background="#A5D6A7"
+                                    android:src="@drawable/pencil_icon_24"
+                                    android:layout_marginLeft="1.0dp"
+                                    android:layout_marginRight="2.0dp"/>
                             </TableRow>
                         </TableLayout>
                     </TableRow>

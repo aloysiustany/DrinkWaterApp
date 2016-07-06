@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<TextView
+  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/spinner_text1"
+    android:layout_width="55dp"
+    android:layout_height="wrap_content"
+    android:textSize="20dp"
+    android:textColor="#515151"
+  android:background="@drawable/ButtonBkGrndBoxTrans"
+  android:gravity="center">
+</TextView>
+

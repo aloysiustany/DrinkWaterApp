@@ -15,6 +15,7 @@ using Android.Support.V7.App;
 using Android.Views.InputMethods;
 using System.Threading.Tasks;
 using SQLite;
+using Android.Support.V4.Widget;
 
 namespace DrinkWater
 {
@@ -22,10 +23,11 @@ namespace DrinkWater
     class DW_MainActivity : Activity
     {
         public List<DrinkLog> drinkLogList = null;
-    //    public DrinkLog lastDrinkLog = null;
-        public double Curr_Weight = 0;
-        public int Exercise_Min = 0;
-        public utils.Weight_Unit Pref_Weight_Unit = utils.Weight_Unit.Unit_Kg;
+   //     public double Curr_Weight = 0;
+   //     public int Exercise_Min = 0;
+   //     public utils.Weight_Unit Pref_Weight_Unit = utils.Weight_Unit.Unit_Kg;
+
+        //todo
         public utils.Volume_Unit Pref_Volume_Unit = utils.Volume_Unit.Unit_mL;
 
         protected override void OnCreate(Bundle bundle)
@@ -34,6 +36,18 @@ namespace DrinkWater
 
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
+
+            //drawer
+         //   var mPlanetTitles = Resource.Array.Weight_Units_String_Array;
+         //   var mDrawerLayout = (DrawerLayout)FindViewById(Resource.Id.drawer_layout);
+ //           var mDrawerList = FindViewById<ListView>(Resource.Id.left_drawer);
+
+            // Set the adapter for the list view
+  //          mDrawerList.Adapter = new ArrayAdapter<String>(this,
+    //                Resource.Drawable.units_spinner_item, mPlanetTitles);
+            // Set the list's click listener
+        //    mDrawerList.OnItemClickListenerstener(new DrawerItemClickListener());
+
 
             // Asssign on click events to add water and repeat drink buttons
             FindViewById<Button>(Resource.Id.button_addCutomWater).Click += onClickAddDrink;
@@ -48,12 +62,19 @@ namespace DrinkWater
             showHideNoDrinkDefaultText();
 
             //todo
-            Curr_Weight = 112;
+       //     Curr_Weight = 112;
 
             //set target text
-            updateWeight(Curr_Weight, Pref_Weight_Unit);
+            updateWeight();
 
             computeProgressTexts();
+
+            FindViewById<ImageButton>(Resource.Id.ImageButton_EditTarget).Click += onClickEditTarget;            
+        }
+
+        public void onClickEditTarget(object sender, EventArgs e)
+        {
+            new EditPersonalSpecModalClass(this).Show(this.FragmentManager, "EditPersonalSpec");
         }
 
         public void onClickAddDrink(object sender, EventArgs e)
@@ -81,7 +102,6 @@ namespace DrinkWater
                 imm.HideSoftInputFromWindow(FindViewById<EditText>(Resource.Id.editText_customAddWater).WindowToken, 0);
 
                 //record last drink log
-                // lastDrinkLog = new DrinkLog(newDrinkLog.volumeML, newDrinkLog.iconRef);
                 DBServices.Instance.UpdatePrevDrinkLog(newDrinkLog);
             }
         }
@@ -124,6 +144,11 @@ namespace DrinkWater
             double percentage = ((double.Parse(FindViewById<TextView>(Resource.Id.textView_ProgressActualsML).Text) /
                       double.Parse(FindViewById<TextView>(Resource.Id.textView_TargetML).Text)) * 100);
 
+            if (double.IsNaN(percentage) || double.IsInfinity(percentage))
+            {
+                percentage = 0;
+            }
+
             if (((int)percentage).ToString().Length > 3)
             {
                 FindViewById<TextView>(Resource.Id.textView_ProgressPercent).SetTextSize(ComplexUnitType.Dip, 21);
@@ -150,12 +175,21 @@ namespace DrinkWater
             FindViewById<ProgressBar>(Resource.Id.progressBar_DrinkProgress).Progress = (int)percentage;
         }
 
-        public void updateWeight(double weight, utils.Weight_Unit unit)
+        public void updateWeight()
         {
-            Curr_Weight = weight;
-            Pref_Weight_Unit = unit;
+            PersonalSpec spec = DBServices.Instance.SelectCurrentPersonalSpec();
 
-            FindViewById<TextView>(Resource.Id.textView_TargetML).Text = ((int)(utils.calcWaterRequirement(Curr_Weight, Pref_Weight_Unit, Pref_Volume_Unit, Exercise_Min))).ToString();
+            //todo - volume unit
+
+            if (spec != null)
+            {
+                FindViewById<TextView>(Resource.Id.textView_TargetML).Text = ((int)(utils.calcWaterRequirement(spec.weight, (utils.Weight_Unit)spec.weight_unit, Pref_Volume_Unit, spec.exercise_duration))).ToString();
+            }
+            else
+            {
+                // all defaults
+                FindViewById<TextView>(Resource.Id.textView_TargetML).Text = ((int)(utils.calcWaterRequirement(0.0, utils.Weight_Unit.Unit_Kg, Pref_Volume_Unit, 0))).ToString();
+            }
         }
 
         //only for debugging. remove on final build.

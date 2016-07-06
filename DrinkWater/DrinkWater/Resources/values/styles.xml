@@ -1,4 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <resources>
   <style name="EditLogModalTheme" parent="Theme.AppCompat.Light.NoActionBar"/>
+
+  <style name="UnitSelectionSpinnerStyle" parent="@android:style/Widget.Holo.DropDownItem.Spinner">
+    <item name="android:textColor">@color/spinner_text_color</item>
+    <item name="android:background">#f8f8f8</item>
+  </style>
 </resources>
