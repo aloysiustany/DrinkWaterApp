@@ -98,10 +98,10 @@ namespace DrinkWater
 
         public void onDialogDelClick(int position)
         {
+            DBServices.Instance.DeleteDrinkLogEntry(((DW_MainActivity)context).drinkLogList[position]);
+
             ((DW_MainActivity)context).drinkLogList.RemoveAt(position);
             this.NotifyDataSetChanged();
-
-            DBServices.Instance.DeleteDrinkLogEntry(((DW_MainActivity)context).drinkLogList[position]);
 
             ((DW_MainActivity)context).showHideNoDrinkDefaultText();
             ((DW_MainActivity)context).computeProgressTexts();
